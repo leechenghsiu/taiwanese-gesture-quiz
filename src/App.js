@@ -39,6 +39,7 @@ function App() {
 					{i === 2 && <SecondStep setStep={setStep} />}
 				</animated.div>
 			))}
+			<div className={styles.background} />
 		</Div100vh>
 	);
 }
