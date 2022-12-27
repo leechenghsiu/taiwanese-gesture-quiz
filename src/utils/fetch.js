@@ -4,7 +4,7 @@ export const fetchResult = async imageData => {
 		Accept: 'application/json',
 	});
 
-	const URL = 'https://4fbbb495b20a685c.gradio.app/run/predict';
+	const URL = 'https://88f1654b-07d2-4c0a.gradio.live/run/predict';
 	const body = JSON.stringify({
 		data: [imageData],
 	});

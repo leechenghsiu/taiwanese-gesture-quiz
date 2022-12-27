@@ -27,7 +27,7 @@ export default function SecondStep({ setStep }) {
 		set([]);
 		ref.current.push(
 			set([
-				`<h1>情境如下：</h1>`,
+				`<h1>情境如下</h1>`,
 				`<h3>假設現在是上課時間，距離下課只剩十分鐘</h3>`,
 				`<h3>老師正在說明下週期末考的範圍和內容</h3>`,
 				`<h3>坐在右後方的王同學找你說話</h3>`,
