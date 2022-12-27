@@ -11,7 +11,7 @@ export default function SecondStep({ setStep }) {
 	const [items, set] = useState([]);
 	const [animationStep, setAnimationStep] = useState(0);
 	const transitions = useTransition(items, {
-		trail: 1500,
+		trail: 1000,
 		from: {
 			opacity: 0,
 			height: 0,
@@ -41,7 +41,7 @@ export default function SecondStep({ setStep }) {
 		setTimeout(() => {
 			setAnimationStep(1);
 			setTimeout(() => setAnimationStep(2), 1000);
-		}, 13500);
+		}, 8000);
 	}, []);
 
 	useEffect(() => {

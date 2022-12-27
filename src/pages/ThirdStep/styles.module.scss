@@ -72,6 +72,15 @@
 		& .webcam {
 			width: 100%;
 			height: 100%;
+
+			& video {
+				object-fit: cover;
+				border-radius: 8px;
+			}
+		}
+
+		& > img {
+			object-fit: cover;
 		}
 
 		& .countDown {
