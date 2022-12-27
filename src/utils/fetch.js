@@ -1,10 +1,9 @@
 export const fetchResult = async imageData => {
 	const headers = new Headers({
 		'Content-Type': 'application/json',
-		Accept: 'application/json',
 	});
 
-	const URL = 'https://88f1654b-07d2-4c0a.gradio.live/run/predict';
+	const URL = 'https://cors-anywhere.herokuapp.com/https://3c313f9d-bd0c-43f4.gradio.live/run/predict';
 	const body = JSON.stringify({
 		data: [imageData],
 	});

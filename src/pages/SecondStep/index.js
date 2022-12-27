@@ -10,6 +10,7 @@ export default function SecondStep({ setStep }) {
 	const ref = useRef([]);
 	const [items, set] = useState([]);
 	const [animationStep, setAnimationStep] = useState(0);
+
 	const transitions = useTransition(items, {
 		trail: 1000,
 		from: {
@@ -46,8 +47,8 @@ export default function SecondStep({ setStep }) {
 
 	useEffect(() => {
 		reset();
-		return () => ref.current.forEach(clearTimeout);
 
+		return () => ref.current.forEach(clearTimeout);
 		/* eslint-disable-next-line react-hooks/exhaustive-deps */
 	}, []);
 

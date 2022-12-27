@@ -6,13 +6,13 @@ import WebcamCapture from '../../components/Webcam';
 
 import styles from './styles.module.scss';
 
-export default function ThirdStep({ setStep }) {
+export default function ThirdStep({ setStep, reqImage, setReqImage }) {
 	const webcamRef = useRef(null);
 	const countDownRef = useRef(null);
 	const ref = useRef([]);
 	const [items, set] = useState([]);
-	const [image, setImage] = useState();
 	const [animationStep, setAnimationStep] = useState(0);
+
 	const transitions = useTransition(items, {
 		trail: 1500,
 		from: {
@@ -28,7 +28,7 @@ export default function ThirdStep({ setStep }) {
 		ref.current.forEach(clearTimeout);
 		ref.current = [];
 		set([]);
-		ref.current.push(set([`<h1>你的回應</h1>`, `<h3>按下拍照按鈕進行回應</h3>`]));
+		ref.current.push(set([`<h1>你的回應</h1>`, `<h3>按下拍攝按鈕進行回應</h3>`]));
 		setTimeout(() => {
 			setAnimationStep(1);
 			setTimeout(() => setAnimationStep(2), 1000);
@@ -37,11 +37,11 @@ export default function ThirdStep({ setStep }) {
 
 	const capture = useCallback(() => {
 		let imageSrc = webcamRef.current.getScreenshot();
-		setImage(imageSrc);
+		setReqImage(imageSrc);
 	}, [webcamRef]);
 
 	const handleCountDown = () => {
-		setImage(null);
+		setReqImage(null);
 		let i = 3;
 		let counterId = setInterval(() => {
 			countDownRef.current.innerText = i.toString();
@@ -63,8 +63,8 @@ export default function ThirdStep({ setStep }) {
 
 	useEffect(() => {
 		reset();
-		return () => ref.current.forEach(clearTimeout);
 
+		return () => ref.current.forEach(clearTimeout);
 		/* eslint-disable-next-line react-hooks/exhaustive-deps */
 	}, []);
 
@@ -79,17 +79,20 @@ export default function ThirdStep({ setStep }) {
 				</animated.div>
 			))}
 			<div className={classnames(styles.webcamWrapper, { [styles.visible]: animationStep >= 1 })}>
-				{image ? <img src={image} alt="" /> : <WebcamCapture ref={webcamRef} className={styles.webcam} />}
+				{reqImage ? <img src={reqImage} alt="" /> : <WebcamCapture ref={webcamRef} className={styles.webcam} />}
 				<div className={styles.countDown} ref={countDownRef} />
 			</div>
 			<button
-				className={classnames(styles.button, { [styles.visible]: animationStep >= 2, [styles.retake]: image })}
+				className={classnames(styles.button, {
+					[styles.visible]: animationStep >= 2,
+					[styles.retake]: reqImage,
+				})}
 				type="button"
 				onClick={handleCountDown}
 			>
-				{image ? '重新拍攝' : '📸 拍攝'}
+				{reqImage ? '重新拍攝' : '📸 拍攝'}
 			</button>
-			{image && (
+			{reqImage && (
 				<button className={classnames(styles.button, styles.visible)} type="button" onClick={() => setStep(4)}>
 					送出
 				</button>
