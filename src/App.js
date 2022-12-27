@@ -10,7 +10,7 @@ import styles from './App.module.scss';
 
 function App() {
 	const height = use100vh();
-	const [step, setStep] = useState(3);
+	const [step, setStep] = useState(0);
 	const transitions = useTransition(step, {
 		key: step,
 		from: { opacity: 0 },
