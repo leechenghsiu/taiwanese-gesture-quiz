@@ -1,0 +1,111 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+	padding: 40px 20px;
+	width: calc(100vw - 40px);
+
+	& .transitionsItem {
+		overflow: hidden;
+		width: 100%;
+		color: white;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		will-change: transform, opacity, height;
+		white-space: nowrap;
+
+		& h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 32px;
+			font-weight: 800;
+			line-height: 32px;
+		}
+
+		& h2 {
+			margin: 0;
+			padding: 0;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 32px;
+			color: #44b9fc;
+		}
+
+		& h3 {
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			font-weight: 800;
+			line-height: 1;
+			color: #44b9fc;
+		}
+
+		& p {
+			margin: 0;
+			padding: 0;
+			font-weight: 800;
+			line-height: 1;
+		}
+	}
+
+	& .image {
+		width: 60vw;
+		max-height: 80vh;
+		height: 100%;
+		object-fit: contain;
+		opacity: 0;
+		transition: opacity 1s ease;
+		flex: 1;
+	}
+
+	& .button {
+		opacity: 0;
+		transition: opacity 1s ease;
+		border: none;
+		padding: 12px 32px;
+		border-radius: 4px;
+		color: #1177b2;
+		font-weight: 700;
+		font-size: 16px;
+		cursor: pointer;
+		position: relative;
+		background-color: #ffffff;
+
+		&::after {
+			background-color: #44b9fc;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			border-radius: 4px;
+			animation-name: blink;
+			animation-duration: 0.8s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate-reverse;
+			// animation-timing-function: cubic-bezier(1, 0, 0, 1);
+			animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+			// animation-timing-function: ease;
+		}
+	}
+
+	& .visible {
+		opacity: 1;
+	}
+}
+
+@keyframes blink {
+	0% {
+		transform: scale3d(1, 1, 1);
+		opacity: 0.8;
+	}
+	100% {
+		transform: scale3d(1.2, 1.4, 1.2);
+		opacity: 0;
+	}
+}
