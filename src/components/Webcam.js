@@ -14,8 +14,9 @@ const WebcamCapture = ({ className }, ref) => (
 		className={classnames(className)}
 		audio={false}
 		height={720}
-		screenshotFormat="image/jpeg"
 		width={720}
+		screenshotFormat="image/jpeg"
+		mirrored
 		videoConstraints={videoConstraints}
 	/>
 );
