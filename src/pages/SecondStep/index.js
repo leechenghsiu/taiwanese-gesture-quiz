@@ -11,7 +11,7 @@ export default function SecondStep({ setStep }) {
 	const [items, set] = useState([]);
 	const [animationStep, setAnimationStep] = useState(0);
 	const transitions = useTransition(items, {
-		trail: 2000,
+		trail: 1500,
 		from: {
 			opacity: 0,
 			height: 0,
@@ -34,13 +34,14 @@ export default function SecondStep({ setStep }) {
 				`<h3 style="color: #fcbf49">「欸欸，等下要吃什麼？」</h3>`,
 				`<h3>但你正在仔細聽老師宣布，王同學再次呼喊</h3>`,
 				`<h3 style="color: #fcbf49">「等下要吃什麼啦！」</h3>`,
-				`<h3>這時，你該用什麼手勢回應他？</h3>`,
+				`<h3>這時你很生氣，想叫他閉嘴</h3>`,
+				`<h3>該用什麼手勢回應他？</h3>`,
 			])
 		);
 		setTimeout(() => {
 			setAnimationStep(1);
 			setTimeout(() => setAnimationStep(2), 1000);
-		}, 16000);
+		}, 13500);
 	}, []);
 
 	useEffect(() => {
