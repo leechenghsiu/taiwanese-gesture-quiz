@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 import classnames from 'classnames';
 
-import Seller from '../../images/seller.png';
+import Anger from '../../images/anger.png';
 
 import styles from './styles.module.scss';
 
@@ -11,7 +11,7 @@ export default function SecondStep({ setStep }) {
 	const [items, set] = useState([]);
 	const [animationStep, setAnimationStep] = useState(0);
 	const transitions = useTransition(items, {
-		trail: 1000,
+		trail: 2000,
 		from: {
 			opacity: 0,
 			height: 0,
@@ -28,15 +28,19 @@ export default function SecondStep({ setStep }) {
 		ref.current.push(
 			set([
 				`<h1>情境如下：</h1>`,
-				`<h3>ＸＸＸＸＸＸＸＸＸＸＸ</h3>`,
-				`<h3>ＸＸＸＸＸＸＸＸＸＸＸＸＸ</h3>`,
-				`<h3>你會用什麼手勢回應？</h3>`,
+				`<h3>假設現在是上課時間，距離下課只剩十分鐘</h3>`,
+				`<h3>老師正在說明下週期末考的範圍和內容</h3>`,
+				`<h3>坐在右後方的王同學找你說話</h3>`,
+				`<h3 style="color: #fcbf49">「欸欸，等下要吃什麼？」</h3>`,
+				`<h3>但你正在仔細聽老師宣布，王同學再次呼喊</h3>`,
+				`<h3 style="color: #fcbf49">「等下要吃什麼啦！」</h3>`,
+				`<h3>這時，你該用什麼手勢回應他？</h3>`,
 			])
 		);
 		setTimeout(() => {
 			setAnimationStep(1);
 			setTimeout(() => setAnimationStep(2), 1000);
-		}, 4000);
+		}, 16000);
 	}, []);
 
 	useEffect(() => {
@@ -56,7 +60,7 @@ export default function SecondStep({ setStep }) {
 					/>
 				</animated.div>
 			))}
-			<img className={classnames(styles.image, { [styles.visible]: animationStep >= 1 })} src={Seller} alt="" />
+			<img className={classnames(styles.image, { [styles.visible]: animationStep >= 1 })} src={Anger} alt="" />
 			<button
 				className={classnames(styles.button, { [styles.visible]: animationStep >= 2 })}
 				type="button"

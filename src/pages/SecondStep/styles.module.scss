@@ -40,7 +40,7 @@
 		& h3 {
 			margin: 0;
 			padding: 0;
-			font-size: 20px;
+			font-size: 16px;
 			font-weight: 800;
 			line-height: 1;
 			color: #44b9fc;
@@ -55,7 +55,7 @@
 	}
 
 	& .image {
-		width: calc(400px * 0.6);
+		width: calc(400px * 0.4);
 		max-height: 64vh;
 		height: 100%;
 		object-fit: contain;
