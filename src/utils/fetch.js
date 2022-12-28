@@ -6,8 +6,9 @@ export const fetchResult = async imageData => {
 		'Content-Type': 'application/json',
 	});
 
-	const URL = `https://cors-anywhere.herokuapp.com/${url}`;
+	const URL = 'taiwanese-gesture-quiz-7xquf6m5l-leechenghsiu.vercel.app';
 	const body = JSON.stringify({
+		url,
 		data: [imageData],
 	});
 
