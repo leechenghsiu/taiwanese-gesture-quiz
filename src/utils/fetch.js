@@ -1,9 +1,12 @@
+import qs from 'qs';
+
 export const fetchResult = async imageData => {
+	const { url } = qs.parse(window.location.search, { ignoreQueryPrefix: true });
 	const headers = new Headers({
 		'Content-Type': 'application/json',
 	});
 
-	const URL = 'https://cors-anywhere.herokuapp.com/https://3c313f9d-bd0c-43f4.gradio.live/run/predict';
+	const URL = `https://cors-anywhere.herokuapp.com/${url}`;
 	const body = JSON.stringify({
 		data: [imageData],
 	});
