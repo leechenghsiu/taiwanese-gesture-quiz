@@ -6,7 +6,7 @@ export const fetchResult = async imageData => {
 		'Content-Type': 'application/json',
 	});
 
-	const URL = 'https://taiwanese-gesture-quiz-7xquf6m5l-leechenghsiu.vercel.app/';
+	const URL = 'https://taiwanese-gesture-quiz-ap.vercel.app/api/result';
 	const body = JSON.stringify({
 		url,
 		data: [imageData],
