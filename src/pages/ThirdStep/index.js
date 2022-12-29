@@ -11,6 +11,7 @@ export default function ThirdStep({ setStep, reqImage, setReqImage }) {
 	const countDownRef = useRef(null);
 	const ref = useRef([]);
 	const [items, set] = useState([]);
+	const [loading, setLoading] = useState(false);
 	const [animationStep, setAnimationStep] = useState(0);
 
 	const transitions = useTransition(items, {
@@ -41,6 +42,7 @@ export default function ThirdStep({ setStep, reqImage, setReqImage }) {
 	}, [webcamRef]);
 
 	const handleCountDown = () => {
+		setLoading(true);
 		setReqImage(null);
 		let i = 3;
 		let counterId = setInterval(() => {
@@ -55,6 +57,7 @@ export default function ThirdStep({ setStep, reqImage, setReqImage }) {
 		}, 1000);
 
 		setTimeout(() => {
+			setLoading(false);
 			capture();
 			clearInterval(counterId);
 			countDownRef.current.innerText = '';
@@ -89,6 +92,7 @@ export default function ThirdStep({ setStep, reqImage, setReqImage }) {
 				})}
 				type="button"
 				onClick={handleCountDown}
+				disabled={loading}
 			>
 				{reqImage ? '重新拍攝' : '📸 拍攝'}
 			</button>
