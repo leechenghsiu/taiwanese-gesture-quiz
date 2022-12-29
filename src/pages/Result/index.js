@@ -27,7 +27,7 @@ export default function Result({ setStep, reqImage, setReqImage }) {
 	const levelMap = {
 		秀逗: { score: 1, comment: '這樣比就對了！' },
 		中指: { score: 0.8, comment: '你是個標準的台灣人！' },
-		小愛心: { score: 0, comment: '好像沒有表現出憤怒！' },
+		ok: { score: 0, comment: '好像沒有表現出憤怒！' },
 	};
 
 	const reset = useCallback(() => {
