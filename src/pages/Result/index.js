@@ -24,20 +24,10 @@ export default function Result({ setStep, reqImage, setReqImage }) {
 		leave: [{ innerHeight: 0 }, { opacity: 0, height: 0 }],
 	});
 
-	// const levelMap = {
-	// 	crazy: { score: 1, comment: '這樣比就對了！' },
-	// 	'middle-finger': { score: 0.8, comment: '你是個標準的台灣人！' },
-	// 	bad: { score: 0.5, comment: '好像沒有表現出憤怒！' },
-	// 	'reverse-v': { score: 0.1, comment: '不錯！有跟上流行喔！' },
-	// 	heart: { score: 0, comment: '你太可愛了' },
-	// 	good: { score: 0, comment: '是在反諷嗎XD' },
-	// 	rock: { score: 0, comment: '突然想搖滾一下嗎？' },
-	// 	ok: { score: 0, comment: '等下課再決定吃什麼啦！' },
-	// };
 	const levelMap = {
-		賓士貓: { score: 1, comment: '這樣比就對了！' },
-		虎斑貓: { score: 0.6, comment: '很好，你是個標準的台灣人！' },
-		三花貓: { score: 0.5, comment: '好像沒有表現出憤怒！' },
+		秀逗: { score: 1, comment: '這樣比就對了！' },
+		中指: { score: 0.8, comment: '你是個標準的台灣人！' },
+		小愛心: { score: 0, comment: '好像沒有表現出憤怒！' },
 	};
 
 	const reset = useCallback(() => {
